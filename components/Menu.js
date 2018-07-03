@@ -1,34 +1,38 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import MoreHoriz from '@material-ui/icons/MoreHoriz'
 
 class SimpleMenu extends React.Component {
-  state = {
-    anchorEl: null,
-  };
+  constructor (props) {
+    super(props)
+    this.state = {
+      anchorEl: null
+    }
+    this.handleClick = this.handleClick.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+  }
 
-  handleClick = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
+  handleClick (event) {
+    this.setState({ anchorEl: event.currentTarget })
+  }
 
-  handleClose = () => {
-    this.setState({ anchorEl: null });
-  };
+  handleClose () {
+    this.setState({ anchorEl: null })
+  }
 
-  render() {
-    const { anchorEl } = this.state;
+  render () {
+    const { anchorEl } = this.state
 
     return (
       <div>
         <MoreHoriz
           aria-owns={anchorEl ? 'simple-menu' : null}
-          aria-haspopup="true"
+          aria-haspopup='true'
           onClick={this.handleClick}
         />
         <Menu
-          id="simple-menu"
+          id='simple-menu'
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
@@ -38,8 +42,8 @@ class SimpleMenu extends React.Component {
           <MenuItem onClick={this.handleClose}>Logout</MenuItem>
         </Menu>
       </div>
-    );
+    )
   }
 }
 
-export default SimpleMenu;
+export default SimpleMenu
