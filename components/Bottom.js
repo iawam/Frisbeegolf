@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import Router from 'next/router'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
@@ -20,7 +21,7 @@ class SimpleBottomNavigation extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      value: 0
+      value: 'newgame'
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -40,10 +41,10 @@ class SimpleBottomNavigation extends Component {
         showLabels
         className={classes.root}
       >
-        <BottomNavigationAction label='New game' icon={<PlayArrow />} />
-        <BottomNavigationAction label='Courses' icon={<GolfCourse />} />
-        <BottomNavigationAction label='Recent' icon={<RestoreIcon />} />
-        <BottomNavigationAction label='More ' icon={<Menu />} />
+        <BottomNavigationAction onClick={() => Router.push('/newgame')} label='New game' icon={<PlayArrow />} />
+        <BottomNavigationAction onClick={() => Router.push('/courses')} label='Courses' icon={<GolfCourse />} />
+        <BottomNavigationAction onClick={() => Router.push('/recent')} label='Recent' icon={<RestoreIcon />} />
+        <BottomNavigationAction label='More ' value='more' icon={<Menu />} />
       </BottomNavigation>
     )
   }

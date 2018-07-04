@@ -1,10 +1,9 @@
 import React from 'react'
+import Head from 'next/head'
+import Router from 'next/router'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import Head from 'next/head'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+import {AppBar, Toolbar, Typography} from '@material-ui/core/'
 
 const styles = {
   root: {
@@ -12,10 +11,6 @@ const styles = {
   },
   flex: {
     flex: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
   }
 }
 
@@ -31,7 +26,9 @@ function ButtonAppBar (props) {
       <AppBar position='static'>
         <Toolbar>
           <Typography variant='title' color='inherit' align='center' className={classes.flex}>
+            <div onClick={() => Router.push('/')} label='index'>
             Discgolf
+            </div>
           </Typography>
         </Toolbar>
       </AppBar>

@@ -1,17 +1,17 @@
 import React from 'react'
-import SelectCourse from '../layouts/main.js'
-import Grid from '@material-ui/core/Grid'
+import RecentCourse from '../layouts/main.js'
+import { Grid } from '@material-ui/core'
 
 export default function Courses () {
   return (
-    <SelectCourse>
+    <RecentCourse>
       <Grid container>
         <Grid item xs={4} />
         <Grid item xs={12} sm={4}>
-        Select a course
+        Recent games
         </Grid>
         <Grid item xs={4} />
       </Grid>
-    </SelectCourse>
+    </RecentCourse>
   )
 }
